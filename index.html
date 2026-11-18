@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Green Earth؛ راهکارهایی ساده برای حفاظت از محیط زیست و ساختن آینده‌ای سبزتر.">
+  <meta name="theme-color" content="#123b2b">
+  <title>Green Earth | زمین سبز، آینده روشن</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --green: #238653;
+      --green-dark: #123b2b;
+      --green-soft: #eaf5ed;
+      --ink: #20352a;
+      --muted: #68786e;
+      --paper: #f8fbf8;
+      --line: #e2ebe4;
+      --white: #fff;
+      --shadow: 0 16px 45px rgba(18, 59, 43, .09);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 82px; }
+    body {
+      margin: 0;
+      font-family: "Vazirmatn", Tahoma, sans-serif;
+      color: var(--ink);
+      background: var(--paper);
+      line-height: 1.9;
+    }
+    a { color: inherit; text-decoration: none; }
+    button, input { font: inherit; }
+    button { cursor: pointer; }
+    img { display: block; max-width: 100%; }
+    .container { width: min(1140px, 90%); margin-inline: auto; }
+    .site-header {
+      position: sticky; top: 0; z-index: 20;
+      background: rgba(255,255,255,.96);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(12px);
+    }
+    .nav { min-height: 74px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .brand { display: inline-flex; align-items: center; gap: 10px; direction: ltr; font-weight: 800; color: var(--green-dark); font-size: 20px; white-space: nowrap; }
+    .brand-mark { width: 40px; height: 40px; display: grid; place-items: center; border-radius: 13px; color: white; background: var(--green); font-size: 23px; }
+    .nav-links { display: flex; align-items: center; gap: 23px; list-style: none; padding: 0; margin: 0; color: #52645a; font-size: 14px; }
+    .nav-links a:hover, .footer-links a:hover { color: var(--green); }
+    .button { display: inline-flex; align-items: center; justify-content: center; border: 0; border-radius: 10px; padding: 11px 21px; background: var(--green); color: white; font-weight: 700; transition: .2s ease; }
+    .button:hover { background: var(--green-dark); transform: translateY(-1px); }
+    .menu-button { display: none; border: 1px solid var(--line); background: white; color: var(--green-dark); border-radius: 9px; padding: 6px 12px; font-size: 23px; }
+    .hero {
+      min-height: 560px; display: flex; align-items: center; color: white;
+      background: linear-gradient(90deg, rgba(8,35,24,.88), rgba(8,35,24,.42)),
+        url("https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=1800&q=80") center/cover;
+    }
+    .hero-content { max-width: 690px; padding: 90px 0; }
+    .eyebrow { display: inline-block; padding: 5px 14px; margin-bottom: 18px; border: 1px solid #ffffff70; border-radius: 30px; background: #ffffff1c; font-size: 13px; }
+    h1 { margin: 0 0 18px; font-size: clamp(38px, 6vw, 66px); line-height: 1.45; }
+    h1 span { color: #a5e8b5; }
+    .hero p { max-width: 580px; margin: 0 0 28px; color: #e4eee7; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+    .button-light { background: #fff; color: var(--green-dark); }
+    .button-light:hover { background: #eaf5ed; color: var(--green-dark); }
+    .button-outline { border: 1px solid #ffffffb0; background: transparent; color: white; }
+    .button-outline:hover { background: white; color: var(--green-dark); }
+    .stats { position: relative; margin-top: -38px; z-index: 2; }
+    .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); padding: 24px 12px; border: 1px solid var(--line); border-radius: 17px; background: white; box-shadow: var(--shadow); }
+    .stat { text-align: center; border-left: 1px solid var(--line); }
+    .stat:last-child { border-left: 0; }
+    .stat strong { display: block; color: var(--green); font-size: 27px; }
+    .stat span { color: var(--muted); font-size: 13px; }
+    section.content-section { padding: 82px 0; }
+    .section-heading { max-width: 680px; text-align: center; margin: 0 auto 42px; }
+    .section-heading small, .mini-label { color: var(--green); font-weight: 800; letter-spacing: .3px; }
+    .section-heading h2 { margin: 7px 0 10px; color: var(--green-dark); font-size: clamp(25px, 4vw, 34px); line-height: 1.5; }
+    .section-heading p { margin: 0; color: var(--muted); font-size: 14px; }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 52px; }
+    .about-photo { position: relative; }
+    .about-photo img { width: 100%; height: 400px; object-fit: cover; border-radius: 20px; background: var(--green-soft); }
+    .photo-note { position: absolute; right: 18px; bottom: 18px; background: white; color: var(--green); border-radius: 10px; padding: 9px 15px; font-weight: 700; box-shadow: var(--shadow); }
+    .about-copy h2 { color: var(--green-dark); font-size: 31px; line-height: 1.6; margin: 8px 0 15px; }
+    .about-copy p { color: var(--muted); font-size: 14px; }
+    .check-list { list-style: none; padding: 0; display: grid; gap: 8px; margin-top: 20px; }
+    .check-list li::before { content: "✓"; display: inline-grid; place-items: center; width: 25px; height: 25px; margin-left: 9px; border-radius: 50%; color: var(--green); background: var(--green-soft); font-weight: 800; }
+    .tinted { background: #eff7f0; }
+    .card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .info-card { padding: 26px; border: 1px solid var(--line); border-radius: 15px; background: white; transition: .2s ease; }
+    .info-card:hover, .article-card:hover { transform: translateY(-5px); box-shadow: var(--shadow); }
+    .card-icon { display: grid; place-items: center; width: 53px; height: 53px; margin-bottom: 15px; border-radius: 14px; background: var(--green-soft); font-size: 26px; }
+    .info-card h3, .article-body h3 { margin: 0 0 8px; color: var(--green-dark); font-size: 18px; }
+    .info-card p, .article-body p { margin: 0; color: var(--muted); font-size: 13px; }
+    .article-card { overflow: hidden; border: 1px solid var(--line); border-radius: 15px; background: white; transition: .2s ease; }
+    .article-card img { width: 100%; height: 195px; object-fit: cover; background: var(--green-soft); }
+    .article-body { padding: 20px; }
+    .article-tag { color: var(--green); font-size: 12px; font-weight: 800; }
+    .read-more { margin-top: 15px; padding: 0; border: 0; background: none; color: var(--green); font-weight: 800; }
+    .dark-section { background: var(--green-dark); color: white; }
+    .dark-section .section-heading h2 { color: white; }
+    .dark-section .section-heading p { color: #c8d8ce; }
+    .calculator-box { max-width: 720px; margin: auto; padding: 30px; border: 1px solid #ffffff25; border-radius: 17px; background: #ffffff0d; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .field { margin-bottom: 18px; }
+    .field label { display: block; margin-bottom: 7px; font-size: 14px; }
+    .field input { width: 100%; padding: 12px 14px; border: 1px solid #ffffff45; border-radius: 9px; outline: none; background: #ffffff12; color: white; }
+    .field input:focus { border-color: #9be2b2; }
+    .field input::placeholder { color: #c8d8ce; }
+    .calculator-box .button { width: 100%; padding: 13px; }
+    .result { display: none; margin-top: 18px; padding: 17px; text-align: center; border: 1px solid #82dba0; border-radius: 11px; background: #ffffff12; }
+    .result.visible { display: block; }
+    .result strong { display: block; color: #a5e8b5; font-size: 30px; }
+    .result p { margin: 5px 0 0; color: #d8e7dd; font-size: 12px; }
+    .challenge-box { max-width: 800px; margin: auto; padding: 28px; border: 1px solid var(--line); border-radius: 17px; background: white; }
+    .challenge-item { display: flex; align-items: center; justify-content: space-between; gap: 15px; padding: 15px 0; border-bottom: 1px solid var(--line); }
+    .challenge-item:last-of-type { border-bottom: 0; }
+    .challenge-item strong { color: var(--green-dark); }
+    .challenge-item p { margin: 3px 0 0; color: var(--muted); font-size: 12px; }
+    .done-button { flex-shrink: 0; border: 0; border-radius: 8px; padding: 8px 13px; color: var(--green); background: var(--green-soft); font-weight: 700; }
+    .done-button.done { color: white; background: var(--green); }
+    .points { margin-top: 18px; padding: 13px; border-radius: 9px; background: var(--green-soft); color: var(--green); text-align: center; font-weight: 800; }
+    .cta { padding: 78px 20px; text-align: center; color: white; background: linear-gradient(rgba(10,48,33,.85),rgba(10,48,33,.88)), url("https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=1600&q=80") center/cover; }
+    .cta h2 { margin: 0 0 10px; font-size: clamp(25px, 4vw, 35px); }
+    .cta p { margin: 0 0 22px; color: #e0eee4; }
+    footer { padding: 48px 0 18px; color: white; background: #0b2419; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 35px; padding-bottom: 30px; }
+    footer h3 { margin: 0 0 12px; font-size: 17px; }
+    footer p, .footer-links a { color: #b6c8bc; font-size: 13px; }
+    .footer-links { list-style: none; display: grid; gap: 7px; padding: 0; margin: 0; }
+    .footer-bottom { padding-top: 16px; border-top: 1px solid #ffffff25; color: #9eb2a4; text-align: center; font-size: 12px; }
+    .modal { display: none; position: fixed; inset: 0; z-index: 50; align-items: center; justify-content: center; padding: 20px; background: #0009; }
+    .modal.open { display: flex; }
+    .modal-panel { width: min(480px, 100%); padding: 25px; border-radius: 15px; background: white; box-shadow: var(--shadow); }
+    .modal-top { display: flex; justify-content: space-between; align-items: center; gap: 15px; }
+    .modal-top h3 { margin: 0; color: var(--green-dark); }
+    .close-button { border: 0; background: transparent; color: var(--muted); font-size: 22px; }
+    .modal-panel p { color: var(--muted); font-size: 14px; }
+    .reveal { opacity: 1; transform: none; }
+    .js-ready .reveal { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
+    .js-ready .reveal.show { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; }
+      .js-ready .reveal { opacity: 1; transform: none; }
+    }
+    @media (max-width: 850px) {
+      .menu-button { display: inline-block; }
+      .nav-links { display: none; position: absolute; top: 74px; right: 0; left: 0; padding: 18px 5%; flex-direction: column; align-items: stretch; gap: 12px; background: white; border-bottom: 1px solid var(--line); }
+      .nav-links.open { display: flex; }
+      .nav-cta { display: none; }
+      .about-grid { grid-template-columns: 1fr; gap: 30px; }
+      .card-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 560px) {
+      section.content-section { padding: 62px 0; }
+      .hero { min-height: 520px; }
+      .hero-content { padding: 65px 0; }
+      .hero p { font-size: 14px; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 18px 0; }
+      .stat:nth-child(2) { border-left: 0; }
+      .stat:nth-child(3) { border-left: 1px solid var(--line); }
+      .card-grid, .form-row, .footer-grid { grid-template-columns: 1fr; }
+      .about-photo img { height: 290px; }
+      .calculator-box, .challenge-box { padding: 20px; }
+      .challenge-item { align-items: flex-start; }
+      .challenge-item strong { font-size: 13px; }
+      .done-button { font-size: 12px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="#home" aria-label="Green Earth، صفحه اصلی"><span class="brand-mark">🌿</span> GREEN EARTH</a>
+      <button class="menu-button" id="menuButton" type="button" aria-label="باز کردن منو" aria-expanded="false" aria-controls="navLinks">☰</button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">خانه</a></li>
+        <li><a href="#about">درباره ما</a></li>
+        <li><a href="#activities">فعالیت‌ها</a></li>
+        <li><a href="#articles">مقالات</a></li>
+        <li><a href="#calculator">محاسبه کربن</a></li>
+        <li><a href="#challenge">چالش‌ها</a></li>
+      </ul>
+      <a class="button nav-cta" href="#challenge">به ما بپیوندید</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-content">
+        <span class="eyebrow">🌍 آینده زمین در دستان ماست</span>
+        <h1>زمین سبزتر،<br><span>آینده روشن‌تر</span></h1>
+        <p>با انتخاب‌های کوچک و آگاهانه می‌توانیم از طبیعت محافظت کنیم. از همین امروز، یک قدم برای زمین برداریم.</p>
+        <div class="hero-actions">
+          <a class="button button-light" href="#activities">راهکارهای سبز</a>
+          <a class="button button-outline" href="#about">بیشتر بدانید</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="container stats">
+      <div class="stats-grid">
+        <div class="stat"><strong>🌳 ۱۰۰+</strong><span>ایده برای حفاظت از طبیعت</span></div>
+        <div class="stat"><strong>♻️ ۵۰+</strong><span>راهکار برای کاهش زباله</span></div>
+        <div class="stat"><strong>💧 ۲۰+</strong><span>روش صرفه‌جویی در آب</span></div>
+        <div class="stat"><strong>🌍 ۱</strong><span>زمین برای همه ما</span></div>
+      </div>
+    </div>
+
+    <section class="content-section" id="about">
+      <div class="container about-grid">
+        <div class="about-photo reveal">
+          <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1000&q=80" alt="درختان بلند در یک جنگل سرسبز" loading="lazy">
+          <span class="photo-note">🌱 مراقبت از طبیعت</span>
+        </div>
+        <div class="about-copy reveal">
+          <span class="mini-label">درباره ما</span>
+          <h2>هر تغییر کوچکی،<br>می‌تواند آینده را تغییر دهد.</h2>
+          <p>Green Earth یک وب‌سایت آموزشی درباره محیط زیست است. هدف ما افزایش آگاهی درباره مشکلات زیست‌محیطی و معرفی راه‌هایی ساده برای داشتن زمینی سالم‌تر است.</p>
+          <p>همه ما می‌توانیم با تغییر بعضی عادت‌های روزانه، نقش مثبتی در حفاظت از طبیعت داشته باشیم.</p>
+          <ul class="check-list">
+            <li>کاهش مصرف پلاستیک</li>
+            <li>حفاظت از جنگل‌ها و منابع طبیعی</li>
+            <li>صرفه‌جویی در مصرف آب و انرژی</li>
+            <li>ترویج سبک زندگی دوستدار محیط زیست</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section tinted" id="activities">
+      <div class="container">
+        <div class="section-heading">
+          <small>WHAT WE DO</small>
+          <h2>چگونه به زمین کمک کنیم؟</h2>
+          <p>با چند عادت ساده می‌توانیم تأثیر مثبتی بر محیط اطراف خود داشته باشیم.</p>
+        </div>
+        <div class="card-grid">
+          <article class="info-card reveal"><div class="card-icon">🌳</div><h3>کاشت درخت</h3><p>درختان به حفظ تنوع زیستی، جذب کربن و بهتر شدن کیفیت هوا کمک می‌کنند.</p></article>
+          <article class="info-card reveal"><div class="card-icon">♻️</div><h3>بازیافت زباله</h3><p>با جدا کردن زباله‌های قابل بازیافت، به کاهش آلودگی و حفظ منابع کمک کنیم.</p></article>
+          <article class="info-card reveal"><div class="card-icon">💧</div><h3>صرفه‌جویی در آب</h3><p>آب منبعی ارزشمند است؛ با مصرف درست آن از منابع آبی محافظت کنیم.</p></article>
+          <article class="info-card reveal"><div class="card-icon">☀️</div><h3>انرژی پاک</h3><p>انرژی‌های تجدیدپذیر می‌توانند به کاهش آلودگی محیط زیست کمک کنند.</p></article>
+          <article class="info-card reveal"><div class="card-icon">🚲</div><h3>حمل‌ونقل سبز</h3><p>پیاده‌روی، دوچرخه‌سواری و حمل‌ونقل عمومی انتخاب‌های مناسب‌تری هستند.</p></article>
+          <article class="info-card reveal"><div class="card-icon">🌎</div><h3>آگاهی محیط زیستی</h3><p>دانش خود را بیشتر کنیم و دیگران را به مراقبت از طبیعت تشویق کنیم.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="articles">
+      <div class="container">
+        <div class="section-heading">
+          <small>GREEN JOURNAL</small>
+          <h2>مجله زمین سبز</h2>
+          <p>چند موضوع مهم درباره محیط زیست که بهتر است بدانیم.</p>
+        </div>
+        <div class="card-grid">
+          <article class="article-card reveal">
+            <img src="https://images.unsplash.com/photo-1473448912268-2022ce9509d8?auto=format&fit=crop&w=800&q=80" alt="نمایی از جنگل" loading="lazy">
+            <div class="article-body"><span class="article-tag">طبیعت</span><h3>چرا جنگل‌ها مهم هستند؟</h3><p>جنگل‌ها زیستگاه بسیاری از گونه‌ها هستند و نقش مهمی در سلامت زمین دارند.</p><button class="read-more" type="button" data-article="forest">ادامه مطلب ←</button></div>
+          </article>
+          <article class="article-card reveal">
+            <img src="https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?auto=format&fit=crop&w=800&q=80" alt="مواد قابل بازیافت" loading="lazy">
+            <div class="article-body"><span class="article-tag">بازیافت</span><h3>چگونه زباله کمتری تولید کنیم؟</h3><p>استفاده دوباره از وسایل و انتخاب محصولات بادوام به کاهش زباله کمک می‌کند.</p><button class="read-more" type="button" data-article="recycle">ادامه مطلب ←</button></div>
+          </article>
+          <article class="article-card reveal">
+            <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=800&q=80" alt="کوهستان و طبیعت" loading="lazy">
+            <div class="article-body"><span class="article-tag">آب‌وهوا</span><h3>تغییرات اقلیمی چیست؟</h3><p>تغییرات اقلیمی بر دما، بارش و اکوسیستم‌های زمین تأثیر می‌گذارند.</p><button class="read-more" type="button" data-article="climate">ادامه مطلب ←</button></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section dark-section" id="calculator">
+      <div class="container">
+        <div class="section-heading">
+          <small>CARBON FOOTPRINT</small>
+          <h2>ردپای کربن خود را تخمین بزنید</h2>
+          <p>اطلاعات زیر را وارد کنید تا یک تخمین ساده و آموزشی از انتشار کربن سالانه ببینید.</p>
+        </div>
+        <div class="calculator-box">
+          <div class="form-row">
+            <div class="field"><label for="distance">مسافت رانندگی روزانه (کیلومتر)</label><input id="distance" type="number" min="0" max="500" step="1" value="10" inputmode="decimal"></div>
+            <div class="field"><label for="electricity">مصرف برق ماهانه (کیلووات‌ساعت)</label><input id="electricity" type="number" min="0" max="5000" step="1" value="100" inputmode="decimal"></div>
+          </div>
+          <div class="field"><label for="flights">تعداد سفرهای هوایی در سال</label><input id="flights" type="number" min="0" max="100" step="1" value="0" inputmode="numeric"></div>
+          <button class="button" id="calculateButton" type="button">محاسبه ردپای کربن</button>
+          <div class="result" id="result" role="status" aria-live="polite"><strong id="total">۰</strong><span>کیلوگرم CO₂ در سال</span><p>این عدد فقط یک تخمین آموزشی است و همه منابع انتشار را در نظر نمی‌گیرد.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section tinted" id="challenge">
+      <div class="container">
+        <div class="section-heading">
+          <small>TAKE ACTION</small>
+          <h2>چالش‌های سبز امروز</h2>
+          <p>یک کار کوچک انتخاب کن و امتیاز خودت را جمع کن.</p>
+        </div>
+        <div class="challenge-box">
+          <div class="challenge-item"><div><strong>🚰 کاهش مصرف آب</strong><p>هنگام مسواک زدن شیر آب را ببند.</p></div><button class="done-button" type="button" data-points="10">انجام شد +۱۰</button></div>
+          <div class="challenge-item"><div><strong>🛍️ حذف کیسه پلاستیکی</strong><p>برای خرید از کیسه چندبارمصرف استفاده کن.</p></div><button class="done-button" type="button" data-points="15">انجام شد +۱۵</button></div>
+          <div class="challenge-item"><div><strong>💡 صرفه‌جویی برق</strong><p>چراغ‌های اضافی را خاموش کن.</p></div><button class="done-button" type="button" data-points="10">انجام شد +۱۰</button></div>
+          <div class="challenge-item"><div><strong>🌱 مراقبت از یک گیاه</strong><p>امروز از یک گیاه یا درخت مراقبت کن.</p></div><button class="done-button" type="button" data-points="20">انجام شد +۲۰</button></div>
+          <div class="points">امتیاز شما: <span id="points">۰</span> ⭐</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="container">
+        <h2>آینده زمین به انتخاب امروز ما بستگی دارد.</h2>
+        <p>بیایید با هم برای ساختن دنیایی پاک‌تر تلاش کنیم.</p>
+        <a class="button button-light" href="#challenge">از امروز شروع کن</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div><a class="brand" href="#home" style="color:white"><span class="brand-mark">🌿</span> GREEN EARTH</a><p>یک قدم برای طبیعت، یک امید برای آینده. با آگاهی و همکاری می‌توانیم زمین بهتری بسازیم.</p></div>
+        <div><h3>دسترسی سریع</h3><ul class="footer-links"><li><a href="#home">خانه</a></li><li><a href="#about">درباره ما</a></li><li><a href="#activities">فعالیت‌ها</a></li></ul></div>
+        <div><h3>بخش‌ها</h3><ul class="footer-links"><li><a href="#articles">مقالات</a></li><li><a href="#calculator">محاسبه کربن</a></li><li><a href="#challenge">چالش‌ها</a></li></ul></div>
+      </div>
+      <div class="footer-bottom">© 2026 Green Earth — زمین ما، مسئولیت ما 🌱</div>
+    </div>
+  </footer>
+
+  <div class="modal" id="articleModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-panel">
+      <div class="modal-top"><h3 id="modalTitle">عنوان مقاله</h3><button class="close-button" id="closeModal" type="button" aria-label="بستن پنجره">×</button></div>
+      <p id="modalText"></p>
+      <button class="button" id="modalDone" type="button">متوجه شدم</button>
+    </div>
+  </div>
+
+  <script>
+    document.documentElement.classList.add("js-ready");
+
+    // منوی موبایل
+    const menuButton = document.getElementById("menuButton");
+    const navLinks = document.getElementById("navLinks");
+
+    menuButton.addEventListener("click", () => {
+      const isOpen = navLinks.classList.toggle("open");
+      menuButton.setAttribute("aria-expanded", String(isOpen));
+      menuButton.textContent = isOpen ? "×" : "☰";
+    });
+
+    navLinks.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+        menuButton.setAttribute("aria-expanded", "false");
+        menuButton.textContent = "☰";
+      });
+    });
+
+    // پنجره توضیحات مقالات
+    const articleContent = {
+      forest: ["اهمیت جنگل‌ها", "جنگل‌ها به تنظیم آب‌وهوا، حفظ خاک، جذب دی‌اکسیدکربن و فراهم کردن زیستگاه برای جانوران کمک می‌کنند. حفاظت از جنگل‌ها مسئولیت همه ماست."],
+      recycle: ["کاهش زباله", "برای کاهش زباله می‌توانیم از وسایل چندبارمصرف استفاده کنیم، خریدهای غیرضروری را کاهش دهیم و کاغذ، شیشه و فلز را جداگانه بازیافت کنیم."],
+      climate: ["تغییرات اقلیمی", "تغییرات اقلیمی به تغییرات بلندمدت در دمای زمین و الگوهای آب‌وهوایی گفته می‌شود. کاهش مصرف انرژی و استفاده از منابع پاک از راهکارهای کمک‌کننده هستند."]
+    };
+    const modal = document.getElementById("articleModal");
+    const modalTitle = document.getElementById("modalTitle");
+    const modalText = document.getElementById("modalText");
+
+    function closeModal() {
+      modal.classList.remove("open");
+    }
+
+    document.querySelectorAll("[data-article]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const article = articleContent[button.dataset.article];
+        if (!article) return;
+        modalTitle.textContent = article[0];
+        modalText.textContent = article[1];
+        modal.classList.add("open");
+        document.getElementById("closeModal").focus();
+      });
+    });
+    document.getElementById("closeModal").addEventListener("click", closeModal);
+    document.getElementById("modalDone").addEventListener("click", closeModal);
+    modal.addEventListener("click", (event) => {
+      if (event.target === modal) closeModal();
+    });
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") closeModal();
+    });
+
+    // محاسبه تخمینی ردپای کربن
+    document.getElementById("calculateButton").addEventListener("click", () => {
+      const distance = Number(document.getElementById("distance").value);
+      const electricity = Number(document.getElementById("electricity").value);
+      const flights = Number(document.getElementById("flights").value);
+      const values = [distance, electricity, flights];
+
+      if (values.some((value) => !Number.isFinite(value) || value < 0) ||
+          distance > 500 || electricity > 5000 || flights > 100) {
+        alert("لطفاً عددهای معتبر در محدوده مشخص‌شده وارد کنید.");
+        return;
+      }
+
+      // ضرایب تقریبی و صرفاً آموزشی
+      const annualEstimate = Math.round(distance * 365 * 0.21 + electricity * 12 * 0.4 + flights * 250);
+      document.getElementById("total").textContent = annualEstimate.toLocaleString("fa-IR");
+      document.getElementById("result").classList.add("visible");
+    });
+
+    // امتیاز چالش‌ها؛ هر فعالیت فقط یک بار امتیاز می‌گیرد
+    let points = 0;
+    document.querySelectorAll("[data-points]").forEach((button) => {
+      button.addEventListener("click", () => {
+        if (button.classList.contains("done")) return;
+        button.classList.add("done");
+        button.textContent = "✓ انجام شد";
+        button.setAttribute("aria-pressed", "true");
+        points += Number(button.dataset.points);
+        document.getElementById("points").textContent = points.toLocaleString("fa-IR");
+      });
+    });
+
+    // نمایش تدریجی بخش‌ها؛ اگر مرورگر پشتیبانی نکند، محتوا همچنان دیده می‌شود
+    if ("IntersectionObserver" in window && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+      document.querySelectorAll(".reveal").forEach((element) => observer.observe(element));
+    } else {
+      document.querySelectorAll(".reveal").forEach((element) => element.classList.add("show"));
+    }
+  </script>
+</body>
+</html>
